@@ -1,0 +1,49 @@
+/* Refined, more readable type scale */
+.desktop-nav a{font-size:13px}
+.header-cta{font-size:12px}
+.eyebrow,.section-kicker{font-size:10px}
+.hero-description{font-size:16px}
+.button-primary,.button-submit{font-size:11px}
+.text-link{font-size:13px}
+.hero-bottomline{font-size:12px}
+.coming-soon{font-size:10px}
+.intro-copy p,.location-copy p,.enquiry-copy>p{font-size:15px}
+.intro-copy .lead{font-size:19px}
+.underlined-link{font-size:12px}
+.section-heading-row>p{font-size:14px}
+.feature-card p{font-size:13px}
+.feature-foot{font-size:9px}
+.disclaimer{font-size:11px}
+.map-label span,.map-coordinate{font-size:9px}
+.map-label strong{font-size:14px}
+.enquiry-note{font-size:10px}
+.contact-mini span{font-size:9px}
+.contact-mini strong{font-size:14px}
+.form-panel-heading{font-size:10px}
+.enquiry-form label{font-size:12px}
+.enquiry-form input:not([type=checkbox]),.enquiry-form select,.enquiry-form textarea{font-size:14px}
+.enquiry-form .consent-row label{font-size:11px}
+.form-privacy{font-size:10px}
+.form-message{font-size:13px}
+.site-footer>span,.site-footer>a:last-child{font-size:10px}
+.admin-eyebrow{font-size:10px}
+.admin-login-copy{font-size:14px}
+.admin-login-form label{font-size:12px}
+.admin-login-form input{font-size:14px}
+.admin-welcome>p{font-size:14px}
+.admin-stat-top{font-size:12px}
+.admin-stats article>small{font-size:11px}
+.admin-table th,.admin-table td{font-size:13px}
+.admin-search input,.admin-filter select{font-size:14px}
+
+.brand-logo{display:block;width:178px;height:58px;object-fit:contain;object-position:center}
+.brand-logo-color{object-fit:cover;mix-blend-mode:multiply}
+.admin-side-brand{align-items:flex-start;flex-direction:column;gap:7px;padding:0 0 30px}
+.admin-side-brand .brand-logo{width:160px;height:52px}
+.admin-brand-caption{font-size:8px;letter-spacing:.17em;color:#aab0a7}
+@media(max-width:650px){
+	.brand-logo{width:140px;height:46px}
+	.admin-side-brand{gap:4px;padding:0}
+	.admin-side-brand .brand-logo{width:128px;height:42px}
+	.admin-brand-caption{font-size:7px}
+}

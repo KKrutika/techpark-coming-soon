@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs><linearGradient id="g" x2="1" y2="1"><stop stop-color="#34433a"/><stop offset="1" stop-color="#111916"/></linearGradient><pattern id="p" width="90" height="90" patternUnits="userSpaceOnUse"><path d="M90 0H0V90" fill="none" stroke="#a8bb80" stroke-opacity=".13"/></pattern></defs>
+<rect width="1600" height="900" fill="url(#g)"/><rect width="1600" height="900" fill="url(#p)"/>
+<g fill="#18231d" stroke="#8b9c72" stroke-opacity=".55" stroke-width="3"><path d="M300 900V430h370v470z"/><path d="M670 900V300h360v600z"/><path d="M1030 900V490h310v410z"/></g>
+<g stroke="#a7b78b" stroke-opacity=".5" stroke-width="4" fill="none"><path d="M300 520h370M300 640h370M300 760h370M670 410h360M670 550h360M670 690h360M1030 610h310M1030 740h310"/><path d="M470 430v470M840 300v600M1180 490v410"/></g>
+<g stroke="#d6f36a" stroke-opacity=".55" stroke-width="5" fill="none"><path d="M470 430V100h370"/><path d="M840 300V55h270"/><path d="M1110 55l-35 -22m35 22l-35 22"/></g>
+<text x="90" y="120" fill="#d6f36a" font-family="Arial" font-size="22" letter-spacing="8">A NEW LANDMARK IN THE MAKING</text>
+</svg>
