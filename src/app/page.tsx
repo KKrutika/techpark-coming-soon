@@ -6,7 +6,7 @@ import { SiteHeader } from "@/components/site-header";
 
 const projectName = process.env.NEXT_PUBLIC_PROJECT_NAME || "TECHPARK";
 const location = process.env.NEXT_PUBLIC_PROJECT_LOCATION || "Bhopal, Madhya Pradesh";
-const tagline = process.env.NEXT_PUBLIC_PROJECT_TAGLINE || "Building the future. Creating possibilities.";
+const tagline = process.env.NEXT_PUBLIC_PROJECT_TAGLINE || "Real estate as a solution, built for professionals. Subscribe, rather than Lease";
 
 export default function Home() {
   return (
@@ -17,11 +17,11 @@ export default function Home() {
         <div className="hero-content">
           <div className="eyebrow hero-label"><span className="live-dot" /> THE CORNER COWORKS WAITLIST</div>
           <h1>Coming <em>soon!</em></h1>
-          <p className="hero-description">{tagline} A new destination for ambitious businesses, people and ideas is on its way.</p>
+          <p className="hero-description">{tagline}.</p>
           <div className="hero-waitlist">
             <div className="hero-waitlist-tag"><Sparkles size={14} /> EARLY ACCESS</div>
-            <h2>Join our waitlist!</h2>
-            <p>Enquiry to hear about launch updates and be among the first to explore what&apos;s next.</p>
+            <h2>Join our waitlist !</h2>
+            <p>and be among the first to explore more about what&apos;s next.</p>
             <a className="button button-primary hero-enquire-button" href="#enquire">Enquire now <ArrowRight size={16} /></a>
           </div>
         </div>
@@ -33,39 +33,42 @@ export default function Home() {
       <section className="intro-section section-pad" id="vision">
         <div className="section-kicker">01 / THE VISION</div>
         <div className="intro-grid">
-          <h2>A place for<br /><em>what&apos;s next.</em></h2>
+          <h2>Flexibility is the<br /><em>new flex.</em></h2>
           <div className="intro-copy">
-            <p className="lead">More than a workplace. A thoughtfully envisioned business destination built around the way the world works today — and where it is headed tomorrow.</p>
-            <p>From growing enterprises to established organisations, the vision is to create an environment where collaboration, ambition and opportunity can thrive.</p>
+            <p className="lead">A thoughtfully envisioned business destination built around the way the world works today — and where it is headed tomorrow.</p>
+            <p>From growing enterprises to individual business heroes, the vision is to create an environment where ambition and opportunity meets the flexibility of modern office spaces.</p>
             <a className="underlined-link" href="#enquire">Be among the first to know <ArrowRight size={16} /></a>
           </div>
         </div>
-        <div className="vision-statement"><Sparkles size={18} /><span>DESIGNED FOR AMBITION. BUILT FOR TOMORROW.</span><span className="vision-line" /></div>
+        <div className="vision-statement"><Sparkles size={18} /><span>DESIGNED FOR AMBITION. CURATED FOR PRODUCTIVITY. BUILT FOR TOMORROW.</span><span className="vision-line" /></div>
       </section>
 
       <section className="highlights-section section-pad" id="highlights">
         <div className="section-kicker">02 / THE OPPORTUNITY</div>
         <div className="section-heading-row">
           <h2>Space to think.<br /><em>Room to grow.</em></h2>
-          <p>Every detail begins with a simple idea: create a destination that helps businesses move forward.</p>
+          <div className="intro-copy">
+          <p className="lead">A place to enhance business ROI, along with &apos;Return on Impression&apos;.</p>
+          <p>For passionate professionals to prudent entrpreneurs, be at the top of your business profitability. Every &apos;office hour&apos; invested is an opportunity to grow and collaborate..</p>
+          </div>
         </div>
         <div className="feature-grid">
           <article className="feature-card feature-large">
             <div className="feature-number">01</div><Building2 size={25} />
             <h3>Workspaces<br />with purpose</h3>
             <p>Planned commercial environments designed to support the needs of modern businesses.</p>
-            <span className="feature-foot">COMMERCIAL SPACES</span>
+            <span className="feature-foot">COMMERCIAL WORKSPACES</span>
           </article>
           <article className="feature-card">
             <div className="feature-number">02</div><Sparkles size={25} />
-            <h3>A connected<br />ecosystem</h3>
-            <p>A vision for bringing businesses, talent and ideas closer together.</p>
+            <h3>Flexibility<br />enhanced</h3>
+            <p>For businesses with flexible needs, choose to subscribe, than lease.</p>
             <span className="feature-foot">BUILT FOR CONNECTION</span>
           </article>
           <article className="feature-card">
             <div className="feature-number">03</div><ShieldCheck size={25} />
             <h3>Infrastructure<br />for tomorrow</h3>
-            <p>Development planned with the expectations of a changing business landscape in mind.</p>
+            <p>Planned for businnesses striving in changing business landscape.</p>
             <span className="feature-foot">FUTURE FOCUSED</span>
           </article>
         </div>

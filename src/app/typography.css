@@ -36,8 +36,8 @@
 .admin-table th,.admin-table td{font-size:13px}
 .admin-search input,.admin-filter select{font-size:14px}
 
-.brand-logo{display:block;width:178px;height:58px;object-fit:contain;object-position:center}
-.brand-logo-color{object-fit:cover;mix-blend-mode:multiply}
+.brand-logo{display:block;width:140px;height:44px;object-fit:contain;object-position:left center}
+.brand-logo-color{object-fit:contain}
 .admin-side-brand{align-items:flex-start;flex-direction:column;gap:7px;padding:0 0 30px}
 .admin-side-brand .brand-logo{width:160px;height:52px}
 .admin-brand-caption{font-size:8px;letter-spacing:.17em;color:#aab0a7}

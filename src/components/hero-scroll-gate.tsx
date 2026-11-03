@@ -12,6 +12,14 @@ export function HeroScrollGate() {
     const lockClass = "hero-scroll-locked";
     const scrollKeys = new Set(["ArrowDown", "ArrowUp", "PageDown", "PageUp", "Home", "End", " "]);
 
+    // Prevent the browser from restoring a stale scroll position or hash
+    // after a refresh — otherwise the page loads mid-content while still
+    // scroll-locked and appears frozen.
+    if ("scrollRestoration" in window.history) window.history.scrollRestoration = "manual";
+    if (window.location.hash && window.location.hash !== "#home") {
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+
     const preventScroll = (event: Event) => {
       if (locked.current) event.preventDefault();
     };
@@ -40,6 +48,9 @@ export function HeroScrollGate() {
 
     root.classList.add(lockClass);
     window.scrollTo(0, 0);
+    // Scroll restoration can happen asynchronously after hydration, so re-assert
+    // the top position on the next frames as well.
+    const frameIds = [requestAnimationFrame(() => window.scrollTo(0, 0)), requestAnimationFrame(() => window.scrollTo(0, 0))];
     document.addEventListener("wheel", preventScroll, { passive: false });
     document.addEventListener("touchmove", preventScroll, { passive: false });
     document.addEventListener("keydown", preventScrollKeys);
@@ -47,6 +58,7 @@ export function HeroScrollGate() {
     window.addEventListener("scroll", relockAtHero, { passive: true });
 
     return () => {
+      frameIds.forEach((id) => cancelAnimationFrame(id));
       root.classList.remove(lockClass);
       document.removeEventListener("wheel", preventScroll);
       document.removeEventListener("touchmove", preventScroll);
