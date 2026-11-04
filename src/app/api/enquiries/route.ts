@@ -52,13 +52,13 @@ async function sendEmail(lead: Record<string, unknown>) {
     ["Approximate location", lead.ip_location || "Unavailable"],
     ["Submitted at", lead.created_at],
   ];
-  const html = `<div style="font-family:Arial,sans-serif;color:#17202a;max-width:640px"><h2>New TechPark enquiry</h2><p>A visitor has submitted an enquiry through the website.</p><table cellpadding="9" cellspacing="0" style="border-collapse:collapse;width:100%">${details.map(([key, value]) => `<tr><td style="border:1px solid #ddd;font-weight:bold;width:190px">${key}</td><td style="border:1px solid #ddd">${escapeHtml(String(value ?? ""))}</td></tr>`).join("")}</table></div>`;
+  const html = `<div style="font-family:Arial,sans-serif;color:#17202a;max-width:640px"><h2>New Corner CoWorks enquiry</h2><p>A visitor has submitted an enquiry through the website.</p><table cellpadding="9" cellspacing="0" style="border-collapse:collapse;width:100%">${details.map(([key, value]) => `<tr><td style="border:1px solid #ddd;font-weight:bold;width:190px">${key}</td><td style="border:1px solid #ddd">${escapeHtml(String(value ?? ""))}</td></tr>`).join("")}</table></div>`;
 
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
     body: JSON.stringify({
-      from, to: [to], subject: `New TechPark enquiry — ${lead.name}`,
+      from, to: [to], subject: `New Corner CoWorks enquiry — ${lead.name}`,
       reply_to: String(lead.email), html,
     }),
   });

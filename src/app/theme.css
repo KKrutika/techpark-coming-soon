@@ -38,6 +38,40 @@
 .feature-card p,.feature-number,.feature-foot,.disclaimer{color:#68758d}
 .feature-card:first-child p{color:#d5def1}
 .feature-card:first-child .feature-foot,.feature-card:first-child .feature-number{color:#aabbe0}
+/* Feature-card hover animation: lift, glow and icon pop. */
+.feature-card{transition:transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .35s cubic-bezier(.22,.61,.36,1),background-color .35s}
+.feature-card>svg{transition:transform .35s cubic-bezier(.34,1.56,.64,1),color .35s}
+.feature-card .feature-number{transition:transform .35s cubic-bezier(.22,.61,.36,1),color .35s}
+.feature-card .feature-foot{transition:letter-spacing .35s,color .35s}
+.feature-card:hover{transform:translateY(-8px);box-shadow:0 24px 48px rgba(7,27,80,.14),0 6px 18px rgba(7,27,80,.08)}
+.feature-card:hover>svg{transform:scale(1.18) rotate(-6deg);color:var(--brand-orange)}
+.feature-card:first-child:hover>svg{color:#ff9a4a}
+.feature-card:hover .feature-number{transform:translateY(-3px);color:var(--brand-blue)}
+.feature-card:first-child:hover .feature-number{color:#ff9a4a}
+.feature-card:hover .feature-foot{letter-spacing:.22em;color:var(--brand-blue-deep)}
+.feature-card:first-child:hover .feature-foot{color:#d5def1}
+.feature-card:first-child:hover{background:#16306e;box-shadow:0 24px 48px rgba(7,27,80,.28),0 6px 18px rgba(7,27,80,.14)}
+.amenity-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:30px}
+.amenity-strip span{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:1px solid #dde4f0;border-radius:999px;background:#fff;color:#3b4c6e;font-size:11px;font-weight:600;letter-spacing:.02em}
+.amenity-strip svg{color:var(--brand-orange)}
+
+/* Gallery: sneak-peek section between highlights and location. */
+.gallery-section{background:#fff}
+.gallery-heading{text-align:center;max-width:640px;margin:0 auto}
+.gallery-heading h2{font-size:clamp(34px,5vw,52px);line-height:1.08;letter-spacing:-.05em;font-weight:600;margin:16px 0 14px;color:#0b1f4b}
+.gallery-heading h2 em{font-style:normal;background:linear-gradient(100deg,#0b2a7a 10%,#ff6b00 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.gallery-heading p{color:var(--text-muted);font-size:14px;line-height:1.8}
+.cowork-gallery{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:38px 0 0}
+.gallery-photo{position:relative;min-height:340px;border-radius:16px;overflow:hidden;display:flex;align-items:flex-end;padding:18px;background:linear-gradient(150deg,#17418f,#071b50)}
+.gallery-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,14,43,.66),transparent 55%)}
+/* Drop your photos in public/images with these filenames to show them; without them each tile shows the brand gradient. */
+.gallery-photo-one{background-image:url('/images/gallery-focus.jpg'),linear-gradient(150deg,#17418f,#071b50)}
+.gallery-photo-two{background-image:url('/images/gallery-collaborate.jpg'),linear-gradient(150deg,#0b2a7a,#071b50)}
+.gallery-photo-three{background-image:url('/images/gallery-breather.jpg'),linear-gradient(150deg,#17418f,#030407)}
+.gallery-photo span{position:relative;z-index:1;color:#fff;font-size:9px;font-weight:700;letter-spacing:.16em}
+.gallery-disclaimer{margin:16px 0 0;color:#8b95a5;font-size:10px;text-align:center;letter-spacing:.02em}
+@media(max-width:900px){.cowork-gallery{grid-template-columns:1fr 1fr}.gallery-photo-three{grid-column:span 2;min-height:240px}}
+@media(max-width:650px){.cowork-gallery{grid-template-columns:1fr;gap:10px;margin-top:26px}.gallery-photo,.gallery-photo-three{grid-column:auto;min-height:220px;border-radius:13px}.gallery-photo span{font-size:8px}.gallery-disclaimer{font-size:9px}}
 .contact-mini span,.form-privacy,.site-footer>span,.site-footer>a:last-child{color:#9ba8bf}
 .enquiry-form label{color:#273650}
 .enquiry-form input:focus,.enquiry-form select:focus,.enquiry-form textarea:focus,.admin-login-form input:focus{border-color:var(--brand-orange)}
@@ -118,7 +152,8 @@
 
 /* Landing-page hero: atmospheric waitlist styling. */
 html.hero-scroll-locked,html.hero-scroll-locked body{height:100%;overflow:hidden;overscroll-behavior:none}
-.site-header{position:fixed;z-index:20;top:0;left:0;right:0;transition:background .25s,border-color .25s,backdrop-filter .25s}
+.site-header{position:fixed;z-index:20;top:0;left:0;right:0;transition:background .25s,border-color .25s,backdrop-filter .25s,opacity .3s,transform .3s;opacity:1;transform:translateY(0)}
+.site-header--hidden{opacity:0;transform:translateY(-100%);pointer-events:none}
 .site-header--scrolled{background:rgba(7,27,80,.96);border-bottom-color:rgba(255,255,255,.1);box-shadow:0 10px 32px rgba(0,0,0,.12);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
 .site-header .header-cta{color:#fff;visibility:hidden;opacity:0;pointer-events:none;transform:translateY(-5px);transition:opacity .2s,transform .2s,visibility .2s,background .2s,border-color .2s,color .2s}
 .site-header .header-cta--visible{visibility:visible;opacity:1;pointer-events:auto;transform:translateY(0)}
@@ -128,6 +163,7 @@ html.hero-scroll-locked,html.hero-scroll-locked body{height:100%;overflow:hidden
 .hero-ambient:after{width:min(93vw,1240px);height:min(38vw,460px);border-color:rgba(255,139,71,.19);transform:translate(-50%,-50%) rotate(-9deg);filter:drop-shadow(0 0 16px rgba(255,107,0,.19))}
 .hero-content{z-index:2;top:48%;left:50%;width:min(88%,900px);max-width:900px;transform:translate(-50%,-44%);text-align:center}
 .hero-content .eyebrow{justify-content:center;gap:10px;font-size:11px;letter-spacing:.17em;color:rgba(255,255,255,.72)}
+.hero-logo{display:block;width:130px;height:auto;margin:0 auto 22px;filter:drop-shadow(0 8px 28px rgba(0,0,0,.35))}
 .hero-content .hero-label{width:max-content;max-width:100%;margin:0 auto;padding:9px 14px;border:1px solid rgba(255,255,255,.14);border-radius:999px;background:rgba(255,255,255,.055);backdrop-filter:blur(12px)}
 .hero-eyebrow-divider{color:rgba(255,255,255,.4)}
 .hero-content h1{font-size:clamp(76px,10vw,130px);line-height:1.04;letter-spacing:-.075em;font-weight:600;margin:29px 0 21px;text-wrap:balance}
@@ -138,6 +174,15 @@ html.hero-scroll-locked,html.hero-scroll-locked body{height:100%;overflow:hidden
 .hero-waitlist h2{margin:18px 0 9px;color:#fff;font-size:29px;line-height:1.3;font-weight:600;letter-spacing:-.045em}
 .hero-waitlist>p{width:100%;max-width:540px;margin:10px auto 30px;color:rgba(255,255,255,.68);font-size:14px;line-height:1.9;white-space:nowrap}
 .hero-enquire-button{margin-top:0;padding:14px 22px;border-radius:999px;text-decoration:none;font-size:11px}
+.countdown-wrap{width:min(100%,560px);margin:20px auto 0;padding:18px 20px 14px;border:1px solid rgba(255,255,255,.14);border-radius:16px;background:rgba(255,255,255,.05);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.countdown-label{display:inline-flex;align-items:center;gap:8px;color:#ffb27b;font-size:9px;font-weight:700;letter-spacing:.16em}
+.countdown-label .live-dot{animation:pulse-dot 1.6s infinite}
+.countdown-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+.countdown-cell{display:flex;flex-direction:column;gap:3px;padding:11px 6px;border:1px solid rgba(255,255,255,.1);border-radius:10px;background:rgba(255,255,255,.05)}
+.countdown-cell strong{color:#fff;font-size:clamp(22px,3.4vw,30px);font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
+.countdown-cell span{color:rgba(255,255,255,.55);font-size:8px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.countdown-note{margin:10px auto 0;color:rgba(255,255,255,.35);font-size:9px;letter-spacing:.05em}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.35}}
 .hero-wordmark{position:absolute;z-index:1;left:0;right:0;bottom:-.18em;overflow:hidden;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.075);font-size:clamp(100px,20vw,270px);font-weight:700;letter-spacing:-.095em;line-height:.85;text-align:center;white-space:nowrap;pointer-events:none;user-select:none}
 .hero-bottomline{z-index:2;top:auto;left:7.2%;right:7.2%;bottom:56px;width:auto;justify-content:space-between;color:rgba(255,255,255,.5);font-size:9px;letter-spacing:.13em}
 .hero-bottomline>span:first-child{gap:8px}
@@ -153,12 +198,19 @@ html.hero-scroll-locked,html.hero-scroll-locked body{height:100%;overflow:hidden
   .hero{min-height:740px;height:100svh}
   .hero-content{top:47%;left:50%;width:90%;transform:translate(-50%,-43%)}
   .hero-content .eyebrow{font-size:9px;letter-spacing:.13em}
+  .hero-logo{width:104px;margin-bottom:18px}
   .hero-content h1{font-size:clamp(60px,13.5vw,90px);line-height:1.03;margin:26px 0 18px}
   .hero-content .hero-description{max-width:410px;margin:13px auto 15px;font-size:16px;line-height:1.8}
   .hero-waitlist{width:min(100%,500px);margin-top:27px;padding:27px 20px 24px;border-radius:17px}
   .hero-waitlist h2{font-size:25px;line-height:1.3}
   .hero-waitlist>p{max-width:540px;margin:8px auto 22px;font-size:14px;line-height:1.8;white-space:normal}
   .hero-enquire-button{padding:13px 19px;font-size:10px}
+  .countdown-wrap{margin-top:16px;padding:14px 14px 11px;border-radius:14px}
+  .countdown-grid{gap:7px;margin-top:10px}
+  .countdown-cell{padding:9px 4px;border-radius:8px}
+  .countdown-note{font-size:8px;margin-top:8px}
+  .amenity-strip{gap:8px;margin-top:22px}
+  .amenity-strip span{padding:8px 12px;font-size:10px}
   .hero-wordmark{bottom:-.12em;font-size:clamp(76px,19vw,135px);-webkit-text-stroke-width:.75px}
   .hero-bottomline{left:7%;right:7%;bottom:62px;font-size:8px;letter-spacing:.08em}
   .hero-bottomline>span:last-child{font-size:7px;letter-spacing:.07em}
@@ -172,6 +224,7 @@ html.hero-scroll-locked,html.hero-scroll-locked body{height:100%;overflow:hidden
   .header-cta{padding:9px 12px;font-size:9px}
   .hero-content{top:53%;transform:translate(-50%,-50%)}
   .hero-content .hero-label{padding:5px 10px}
+  .hero-logo{width:96px;margin-bottom:8px}
   .hero-content h1{font-size:clamp(54px,8vh,68px);line-height:1.06;margin:11px 0 8px}
   .hero-content .hero-description{max-width:540px;margin:7px auto 9px;font-size:16px;line-height:1.5}
   .hero-waitlist{margin-top:8px;padding:12px 16px 10px;border-radius:14px}
@@ -179,8 +232,19 @@ html.hero-scroll-locked,html.hero-scroll-locked body{height:100%;overflow:hidden
   .hero-waitlist h2{margin:4px 0 2px;font-size:20px;line-height:1.3}
   .hero-waitlist>p{max-width:540px;margin:5px auto 8px;font-size:14px;line-height:1.55;white-space:normal}
   .hero-enquire-button{padding:7px 16px;font-size:9px}
+  .countdown-wrap{margin-top:8px;padding:8px 14px 7px;border-radius:11px}
+  .countdown-label{font-size:8px}
+  .countdown-grid{gap:6px;margin-top:6px}
+  .countdown-cell{padding:6px 4px;border-radius:7px}
+  .countdown-cell strong{font-size:20px}
+  .countdown-note{display:none}
   .hero-bottomline{display:none}
   .hero-scroll{bottom:1px;width:30px;height:30px}
   .hero-wordmark{font-size:clamp(90px,18vw,180px)}
 }
 @media(prefers-reduced-motion:reduce){.hero-scroll{transition:none}}
+/* Scroll-reveal: sections fade + rise into view once. */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1);will-change:opacity,transform}
+.reveal--visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media(prefers-reduced-motion:reduce){.feature-card,.feature-card>svg,.feature-card .feature-number,.feature-card .feature-foot{transition:none}.feature-card:hover{transform:none}}

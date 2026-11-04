@@ -11,6 +11,7 @@ type SiteHeaderProps = {
 export function SiteHeader({ projectName }: SiteHeaderProps) {
   const [showInterest, setShowInterest] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hideHeader, setHideHeader] = useState(true);
 
   useEffect(() => {
     let frame = 0;
@@ -26,9 +27,11 @@ export function SiteHeader({ projectName }: SiteHeaderProps) {
         const enquiryBounds = enquiry.getBoundingClientRect();
         const headerHasPassedHero = heroBounds.bottom <= 100;
         const enquiryIsVisible = enquiryBounds.top < window.innerHeight && enquiryBounds.bottom > 0;
+        const atHero = window.scrollY < 50;
 
         setScrolled(headerHasPassedHero);
         setShowInterest(headerHasPassedHero && !enquiryIsVisible);
+        setHideHeader(atHero);
       });
     };
 
@@ -43,7 +46,7 @@ export function SiteHeader({ projectName }: SiteHeaderProps) {
   }, []);
 
   return (
-    <header className={`site-header${scrolled ? " site-header--scrolled" : ""}`}>
+    <header className={`site-header${scrolled ? " site-header--scrolled" : ""}${hideHeader ? " site-header--hidden" : ""}`}>
       <a className="brand" href="#home" aria-label={`${projectName} home`}>
         <Image className="brand-logo" src="/images/logo-color.png" alt="Corner Coworks" width={140} height={44} priority />
       </a>

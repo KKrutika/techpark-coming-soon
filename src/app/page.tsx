@@ -1,10 +1,12 @@
-import { ArrowRight, Building2, MapPin, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, Building2, Coffee, MapPin, Monitor, ShieldCheck, Sparkles } from "lucide-react";
+import { Countdown } from "@/components/countdown";
 import Image from "next/image";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { HeroScrollGate } from "@/components/hero-scroll-gate";
+import { Reveal } from "@/components/reveal";
 import { SiteHeader } from "@/components/site-header";
 
-const projectName = process.env.NEXT_PUBLIC_PROJECT_NAME || "TECHPARK";
+const projectName = process.env.NEXT_PUBLIC_PROJECT_NAME || "Corner CoWorks";
 const location = process.env.NEXT_PUBLIC_PROJECT_LOCATION || "Bhopal, Madhya Pradesh";
 const tagline = process.env.NEXT_PUBLIC_PROJECT_TAGLINE || "Real estate as a solution, built for professionals. Subscribe, rather than Lease";
 
@@ -15,9 +17,11 @@ export default function Home() {
       <section className="hero" id="home">
         <div className="hero-ambient" aria-hidden="true" />
         <div className="hero-content">
+          <Image className="hero-logo" src="/images/logo-color.png" alt="Corner Coworks" width={150} height={49} priority />
           <div className="eyebrow hero-label"><span className="live-dot" /> THE CORNER COWORKS WAITLIST</div>
           <h1>Coming <em>soon!</em></h1>
           <p className="hero-description">{tagline}.</p>
+          <Countdown />
           <div className="hero-waitlist">
             <div className="hero-waitlist-tag"><Sparkles size={14} /> EARLY ACCESS</div>
             <h2>Join our waitlist !</h2>
@@ -30,7 +34,8 @@ export default function Home() {
         <HeroScrollGate />
       </section>
 
-      <section className="intro-section section-pad" id="vision">
+      <Reveal>
+        <section className="intro-section section-pad" id="vision">
         <div className="section-kicker">01 / THE VISION</div>
         <div className="intro-grid">
           <h2>Flexibility is the<br /><em>new flex.</em></h2>
@@ -41,9 +46,11 @@ export default function Home() {
           </div>
         </div>
         <div className="vision-statement"><Sparkles size={18} /><span>DESIGNED FOR AMBITION. CURATED FOR PRODUCTIVITY. BUILT FOR TOMORROW.</span><span className="vision-line" /></div>
-      </section>
+        </section>
+      </Reveal>
 
-      <section className="highlights-section section-pad" id="highlights">
+      <Reveal>
+        <section className="highlights-section section-pad" id="highlights">
         <div className="section-kicker">02 / THE OPPORTUNITY</div>
         <div className="section-heading-row">
           <h2>Space to think.<br /><em>Room to grow.</em></h2>
@@ -72,10 +79,28 @@ export default function Home() {
             <span className="feature-foot">FUTURE FOCUSED</span>
           </article>
         </div>
-        <p className="disclaimer">Project features and specifications are indicative and subject to final approvals and project documentation.</p>
-      </section>
+        <div className="amenity-strip">
+          <span><Monitor size={17} /> Work-ready setup</span>
+          <span><Coffee size={17} /> Coffee & conversations</span>
+          <span><ShieldCheck size={17} /> Thoughtful environment</span>
+        </div>
+        </section>
+      </Reveal>
 
-      <section className="location-section section-pad" id="location">
+      <Reveal>
+        <section className="gallery-section section-pad" aria-labelledby="gallery-title">
+        <div className="gallery-heading"><div className="section-kicker">03 / A SNEAK PEEK</div><h2 id="gallery-title">A little room<br /><em>for big ideas.</em></h2><p>A glimpse of the kind of inspiring, comfortable workspace we are working towards.</p></div>
+        <div className="cowork-gallery">
+          <div className="gallery-photo gallery-photo-one"><span>SPACE TO FOCUS</span></div>
+          <div className="gallery-photo gallery-photo-two"><span>ROOM TO COLLABORATE</span></div>
+          <div className="gallery-photo gallery-photo-three"><span>TAKE A BREATHER</span></div>
+        </div>
+        <p className="gallery-disclaimer">Visuals are indicative references. Final interiors, facilities and workspace offerings may vary.</p>
+        </section>
+      </Reveal>
+
+      <Reveal>
+        <section className="location-section section-pad" id="location">
         <div className="location-art">
           <iframe
             className="location-map-frame"
@@ -93,9 +118,11 @@ export default function Home() {
           <h2>Rooted here.<br /><em>Ready for everywhere.</em></h2>
           <p>Location is central to opportunity. Discover a business destination planned for the next chapter of growth in {location}.</p>
         </div>
-      </section>
+        </section>
+      </Reveal>
 
-      <section className="enquiry-section section-pad" id="enquire">
+      <Reveal>
+        <section className="enquiry-section section-pad" id="enquire">
         <div className="enquiry-copy">
           <div className="section-kicker">04 / FIRST ACCESS</div>
           <h2>Be part of<br /><em>what&apos;s next.</em></h2>
@@ -105,10 +132,12 @@ export default function Home() {
         <div className="form-panel">
           <EnquiryForm />
         </div>
-      </section>
+        </section>
+      </Reveal>
 
       <footer className="site-footer">
-        <a className="brand footer-brand" href="#home" aria-label={`${projectName} home`}><Image className="brand-logo" src="/images/logo-white.png" alt="Corner Coworks" width={180} height={58} /></a>
+        <a className="brand footer-brand" href="#home" aria-label={`${projectName} home`}>
+          <Image className="brand-logo" src="/images/logo-color.png" alt="Corner Coworks" width={180} height={58} /></a>
         <span>© {new Date().getFullYear()} {projectName}. All rights reserved.</span>
         <a href="#home">BACK TO TOP ↑</a>
       </footer>

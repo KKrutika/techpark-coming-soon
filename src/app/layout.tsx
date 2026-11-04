@@ -6,7 +6,7 @@ import "./theme.css";
 
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope" });
 
-const projectName = process.env.NEXT_PUBLIC_PROJECT_NAME || "TECHPARK";
+const projectName = process.env.NEXT_PUBLIC_PROJECT_NAME || "Corner CoWorks";
 
 export const metadata: Metadata = {
   title: `${projectName} | Coming Soon`,
