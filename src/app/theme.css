@@ -9,12 +9,12 @@
   --text-muted:#65718a;
 }
 
-.hero,.site-footer,.admin-login-shell,.admin-sidebar,.admin-loading,
+.hero,.admin-login-shell,.admin-sidebar,.admin-loading,
 .location-section,.feature-card:first-child,.button-submit,.admin-primary-btn,
 .admin-export-btn,.admin-whatsapp-btn{background-color:var(--brand-blue-deep)}
 .hero{background-color:#071b50}
 .hero-overlay{background:linear-gradient(90deg,rgba(4,14,43,.9) 0%,rgba(4,14,43,.62) 52%,rgba(4,14,43,.25) 100%),linear-gradient(0deg,rgba(4,14,43,.7),transparent 34%,rgba(4,14,43,.34))}
-.site-footer{background-color:#071b50}
+.site-footer{background-color:#fff;color:#0b1f4b}
 .highlights-section{background:#edf2fa}
 .feature-card{background:#fff}
 .location-section{background-color:#0b2a7a}
@@ -72,7 +72,8 @@
 .gallery-disclaimer{margin:16px 0 0;color:#8b95a5;font-size:10px;text-align:center;letter-spacing:.02em}
 @media(max-width:900px){.cowork-gallery{grid-template-columns:1fr 1fr}.gallery-photo-three{grid-column:span 2;min-height:240px}}
 @media(max-width:650px){.cowork-gallery{grid-template-columns:1fr;gap:10px;margin-top:26px}.gallery-photo,.gallery-photo-three{grid-column:auto;min-height:220px;border-radius:13px}.gallery-photo span{font-size:8px}.gallery-disclaimer{font-size:9px}}
-.contact-mini span,.form-privacy,.site-footer>span,.site-footer>a:last-child{color:#9ba8bf}
+.site-footer>span,.site-footer>a:last-child{color:#3d5a99}
+.contact-mini span,.form-privacy{color:#9ba8bf}
 .enquiry-form label{color:#273650}
 .enquiry-form input:focus,.enquiry-form select:focus,.enquiry-form textarea:focus,.admin-login-form input:focus{border-color:var(--brand-orange)}
 .enquiry-form .consent-row input{accent-color:var(--brand-orange)}
@@ -150,12 +151,21 @@
   .enquiry-form .name-fields{gap:8px}
 }
 
-/* Landing-page hero: atmospheric waitlist styling. */
-html.hero-scroll-locked,html.hero-scroll-locked body{height:100%;overflow:hidden;overscroll-behavior:none}
+/* Landing-page hero: free scrolling, with one-scroll skip past the hero. */
+html{scroll-snap-type:y proximity}
+.hero{scroll-snap-align:start;scroll-snap-stop:always}
+.intro-section{scroll-snap-align:start}
 .site-header{position:fixed;z-index:20;top:0;left:0;right:0;transition:background .25s,border-color .25s,backdrop-filter .25s,opacity .3s,transform .3s;opacity:1;transform:translateY(0)}
 .site-header--hidden{opacity:0;transform:translateY(-100%);pointer-events:none}
-.site-header--scrolled{background:rgba(7,27,80,.96);border-bottom-color:rgba(255,255,255,.1);box-shadow:0 10px 32px rgba(0,0,0,.12);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
-.site-header .header-cta{color:#fff;visibility:hidden;opacity:0;pointer-events:none;transform:translateY(-5px);transition:opacity .2s,transform .2s,visibility .2s,background .2s,border-color .2s,color .2s}
+.site-header--scrolled{background:rgba(255,255,255,.96);border-bottom-color:rgba(11,42,122,.1);box-shadow:0 10px 32px rgba(7,27,80,.1);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+/* White header/footer: brand-blue text */
+.site-header .brand,.site-header .desktop-nav a,.site-header .mobile-menu,.site-footer,.site-footer .brand{color:var(--brand-blue)}
+.site-header .desktop-nav a:hover{color:var(--brand-orange)}
+.site-header .header-cta{border-color:var(--brand-blue);color:var(--brand-blue)}
+.site-header .header-cta:hover{background:var(--brand-blue);border-color:var(--brand-blue);color:#fff}
+.site-footer>span,.site-footer>a:last-child{color:#3d5a99}
+.site-footer>a:last-child:hover{color:var(--brand-blue)}
+.site-header .header-cta{color:var(--brand-blue);visibility:hidden;opacity:0;pointer-events:none;transform:translateY(-5px);transition:opacity .2s,transform .2s,visibility .2s,background .2s,border-color .2s,color .2s}
 .site-header .header-cta--visible{visibility:visible;opacity:1;pointer-events:auto;transform:translateY(0)}
 .hero{isolation:isolate;background:#030407;height:100vh;height:100svh;min-height:0;max-height:none}
 .hero-ambient{position:absolute;z-index:0;inset:0;overflow:hidden;background:radial-gradient(ellipse at 50% 43%,rgba(28,48,88,.52),transparent 42%),radial-gradient(ellipse at 65% 42%,rgba(255,107,0,.2),transparent 31%),radial-gradient(ellipse at 34% 50%,rgba(14,48,112,.25),transparent 36%),linear-gradient(180deg,#030407,#080a10 76%,#030407)}
@@ -188,8 +198,6 @@ html.hero-scroll-locked,html.hero-scroll-locked body{height:100%;overflow:hidden
 .hero-bottomline>span:first-child{gap:8px}
 .hero-bottomline>span:first-child svg{color:#ff9a4a}
 .hero-bottomline>span:last-child{color:rgba(255,255,255,.43)}
-.hero-scroll{position:absolute;z-index:3;left:50%;bottom:17px;width:36px;height:36px;display:grid;place-items:center;transform:translateX(-50%);border:1px solid rgba(255,255,255,.27);border-radius:50%;color:rgba(255,255,255,.8);transition:background .2s,border-color .2s,color .2s,transform .2s}
-.hero-scroll:hover{transform:translate(-50%,3px);border-color:#ff6b00;background:#ff6b00;color:#071b50}
 @media(max-width:900px){
   .hero-content{width:min(90%,800px)}
   .hero-bottomline{left:6%;right:6%}
@@ -214,7 +222,6 @@ html.hero-scroll-locked,html.hero-scroll-locked body{height:100%;overflow:hidden
   .hero-wordmark{bottom:-.12em;font-size:clamp(76px,19vw,135px);-webkit-text-stroke-width:.75px}
   .hero-bottomline{left:7%;right:7%;bottom:62px;font-size:8px;letter-spacing:.08em}
   .hero-bottomline>span:last-child{font-size:7px;letter-spacing:.07em}
-  .hero-scroll{bottom:15px;width:32px;height:32px}
 }
 @media(min-width:651px) and (max-height:720px){
   .site-header{height:66px}
@@ -239,10 +246,8 @@ html.hero-scroll-locked,html.hero-scroll-locked body{height:100%;overflow:hidden
   .countdown-cell strong{font-size:20px}
   .countdown-note{display:none}
   .hero-bottomline{display:none}
-  .hero-scroll{bottom:1px;width:30px;height:30px}
   .hero-wordmark{font-size:clamp(90px,18vw,180px)}
 }
-@media(prefers-reduced-motion:reduce){.hero-scroll{transition:none}}
 /* Scroll-reveal: sections fade + rise into view once. */
 .reveal{opacity:0;transform:translateY(36px);transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1);will-change:opacity,transform}
 .reveal--visible{opacity:1;transform:none}

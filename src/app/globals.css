@@ -8,8 +8,10 @@
     --line: rgba(16, 34, 79, .16)
 }
 
-* {
-    box-sizing: border-box
+main {
+    position: relative;
+    z-index: 1;
+    background: var(--paper)
 }
 
 html {
@@ -38,7 +40,9 @@ select {
 }
 
 .hero {
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 0;
     min-height: 790px;
     height: 100svh;
     max-height: 1050px;
@@ -64,8 +68,13 @@ select {
     background: linear-gradient(90deg, rgba(8, 13, 11, .88) 0%, rgba(8, 13, 11, .58) 52%, rgba(8, 13, 11, .25) 100%), linear-gradient(0deg, rgba(8, 13, 11, .68), transparent 34%, rgba(8, 13, 11, .35))
 }
 
+.site-header--hidden {
+    transform: translateY(-100%);
+    transition: transform .3s
+}
+
 .site-header {
-    position: absolute;
+    position: fixed;
     z-index: 2;
     top: 0;
     left: 0;
@@ -75,7 +84,10 @@ select {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid rgba(255, 255, 255, .17)
+    border-bottom: 1px solid rgba(16, 34, 79, .17);
+    background: #fff;
+    color: var(--ink);
+    transition: transform .3s
 }
 
 .brand {
@@ -121,7 +133,7 @@ select {
 
 .desktop-nav a {
     font-size: 14px;
-    color: rgba(255, 255, 255, .76);
+    color: rgba(16, 34, 79, .76);
     transition: color .2s
 }
 
@@ -135,7 +147,7 @@ select {
     display: flex;
     align-items: center;
     gap: 12px;
-    border: 1px solid rgba(255, 255, 255, .55);
+    border: 1px solid rgba(16, 34, 79, .55);
     padding: 13px 17px;
     letter-spacing: .08em;
     text-transform: uppercase;
@@ -153,6 +165,9 @@ select {
     color: #fff
 }
 
+@keyframes hero-parallax {
+    to { transform: translateY(-43%) scale(.92); opacity: .4 }
+}
 .hero-content {
     position: absolute;
     z-index: 1;
@@ -306,7 +321,10 @@ h2 em {
 }
 
 .section-pad {
-    padding: 120px 12%
+    padding: 120px 12%;
+    position: relative;
+    z-index: 1;
+    background: inherit
 }
 
 .intro-section {
@@ -418,17 +436,49 @@ h2 {
 .feature-grid {
     display: grid;
     grid-template-columns: 1.15fr 1fr 1fr;
-    gap: 13px
+    gap: 13px;
+    perspective: 1200px
 }
 
 .feature-card {
     position: relative;
     min-height: 330px;
-    padding: 34px 30px;
+    height: 330px;
+    padding: 0;
     background: #f4f4ef;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    transform-style: preserve-3d;
+    transition: transform .6s
+}
+
+.feature-card:hover {
+    transform: rotateY(180deg) !important
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    inset: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    padding: 34px 30px;
+    display: flex;
+    flex-direction: column;
     align-items: flex-start
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    padding: 0;
+    overflow: hidden
+}
+
+.card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover
 }
 
 .feature-card:first-child {
@@ -585,7 +635,7 @@ h2 {
     display: grid;
     grid-template-columns: .85fr 1.15fr;
     gap: 12%;
-    background: #f3f2ed
+    background: #dce5f5 !important
 }
 
 .enquiry-copy h2 {
@@ -793,7 +843,9 @@ h2 {
     padding: 35px 7.2%;
     display: flex;
     align-items: center;
-    justify-content: space-between
+    justify-content: space-between;
+    position: relative;
+    z-index: 1
 }
 
 .site-footer>span,
@@ -992,7 +1044,12 @@ h2 {
     }
 }
 
-/* Admin dashboard */
+.gallery-photo {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    min-height: 260px
+}
 .admin-login-shell {
     min-height: 100vh;
     background: #202722;

@@ -2,7 +2,6 @@ import { ArrowRight, Building2, Coffee, MapPin, Monitor, ShieldCheck, Sparkles }
 import { Countdown } from "@/components/countdown";
 import Image from "next/image";
 import { EnquiryForm } from "@/components/enquiry-form";
-import { HeroScrollGate } from "@/components/hero-scroll-gate";
 import { Reveal } from "@/components/reveal";
 import { SiteHeader } from "@/components/site-header";
 
@@ -31,7 +30,6 @@ export default function Home() {
         </div>
         <div className="hero-wordmark" aria-hidden="true">WAITLIST</div>
         <div className="hero-bottomline"><span><MapPin size={15} /> {location}</span><span>DESIGNED FOR WHAT&apos;S NEXT</span></div>
-        <HeroScrollGate />
       </section>
 
       <Reveal>
@@ -61,22 +59,31 @@ export default function Home() {
         </div>
         <div className="feature-grid">
           <article className="feature-card feature-large">
-            <div className="feature-number">01</div><Building2 size={25} />
-            <h3>Workspaces<br />with purpose</h3>
-            <p>Planned commercial environments designed to support the needs of modern businesses.</p>
-            <span className="feature-foot">COMMERCIAL WORKSPACES</span>
+            <div className="card-front">
+              <div className="feature-number">01</div><Building2 size={25} />
+              <h3>Workspaces<br />with purpose</h3>
+              <p>Planned commercial environments designed to support the needs of modern businesses.</p>
+              <span className="feature-foot">COMMERCIAL WORKSPACES</span>
+            </div>
+            <div className="card-back"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600" alt="Workspace" /></div>
           </article>
           <article className="feature-card">
-            <div className="feature-number">02</div><Sparkles size={25} />
-            <h3>Flexibility<br />enhanced</h3>
-            <p>For businesses with flexible needs, choose to subscribe, than lease.</p>
-            <span className="feature-foot">BUILT FOR CONNECTION</span>
+            <div className="card-front">
+              <div className="feature-number">02</div><Sparkles size={25} />
+              <h3>Flexibility<br />enhanced</h3>
+              <p>For businesses with flexible needs, choose to subscribe, than lease.</p>
+              <span className="feature-foot">BUILT FOR CONNECTION</span>
+            </div>
+            <div className="card-back"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600" alt="Workspace" /></div>
           </article>
           <article className="feature-card">
-            <div className="feature-number">03</div><ShieldCheck size={25} />
-            <h3>Infrastructure<br />for tomorrow</h3>
-            <p>Planned for businnesses striving in changing business landscape.</p>
-            <span className="feature-foot">FUTURE FOCUSED</span>
+            <div className="card-front">
+              <div className="feature-number">03</div><ShieldCheck size={25} />
+              <h3>Infrastructure<br />for tomorrow</h3>
+              <p>Planned for businnesses striving in changing business landscape.</p>
+              <span className="feature-foot">FUTURE FOCUSED</span>
+            </div>
+            <div className="card-back"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=600" alt="Workspace" /></div>
           </article>
         </div>
         <div className="amenity-strip">
@@ -91,9 +98,9 @@ export default function Home() {
         <section className="gallery-section section-pad" aria-labelledby="gallery-title">
         <div className="gallery-heading"><div className="section-kicker">03 / A SNEAK PEEK</div><h2 id="gallery-title">A little room<br /><em>for big ideas.</em></h2><p>A glimpse of the kind of inspiring, comfortable workspace we are working towards.</p></div>
         <div className="cowork-gallery">
-          <div className="gallery-photo gallery-photo-one"><span>SPACE TO FOCUS</span></div>
-          <div className="gallery-photo gallery-photo-two"><span>ROOM TO COLLABORATE</span></div>
-          <div className="gallery-photo gallery-photo-three"><span>TAKE A BREATHER</span></div>
+          <div className="gallery-photo gallery-photo-one" style={{ backgroundImage: "url(https://images.unsplash.com/photo-1497366216548-37526070297c?w=800)" }}><span>SPACE TO FOCUS</span></div>
+          <div className="gallery-photo gallery-photo-two" style={{ backgroundImage: "url(https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800)" }}><span>ROOM TO COLLABORATE</span></div>
+          <div className="gallery-photo gallery-photo-three" style={{ backgroundImage: "url(https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800)" }}><span>TAKE A BREATHER</span></div>
         </div>
         <p className="gallery-disclaimer">Visuals are indicative references. Final interiors, facilities and workspace offerings may vary.</p>
         </section>

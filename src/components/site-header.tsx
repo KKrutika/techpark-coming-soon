@@ -46,7 +46,7 @@ export function SiteHeader({ projectName }: SiteHeaderProps) {
   }, []);
 
   return (
-    <header className={`site-header${scrolled ? " site-header--scrolled" : ""}${hideHeader ? " site-header--hidden" : ""}`}>
+    <header className={`site-header${hideHeader ? " site-header--hidden" : ""}`}>
       <a className="brand" href="#home" aria-label={`${projectName} home`}>
         <Image className="brand-logo" src="/images/logo-color.png" alt="Corner Coworks" width={140} height={44} priority />
       </a>
@@ -55,7 +55,7 @@ export function SiteHeader({ projectName }: SiteHeaderProps) {
         <a href="#highlights">Highlights</a>
         <a href="#location">Location</a>
       </nav>
-      <a className={`header-cta${showInterest ? " header-cta--visible" : ""}`} href="#enquire" aria-hidden={!showInterest} tabIndex={showInterest ? 0 : -1}>
+      <a className="header-cta header-cta--visible" href="#enquire">
         Enquire now <MoveUpRight size={15} />
       </a>
       <a className="mobile-menu" href="#enquire" aria-label="Go to enquiry form"><Menu /></a>
