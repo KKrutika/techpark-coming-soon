@@ -20,7 +20,7 @@ export default function Home() {
           <div className="eyebrow hero-label"><span className="live-dot" /> THE CORNER COWORKS WAITLIST</div>
           <h1>Coming <em>soon!</em></h1>
           <p className="hero-description">{tagline}.</p>
-          <Countdown />
+          {/* <Countdown /> */}
           <div className="hero-waitlist">
             <div className="hero-waitlist-tag"><Sparkles size={14} /> EARLY ACCESS</div>
             <h2>Join our waitlist !</h2>
@@ -65,7 +65,7 @@ export default function Home() {
               <p>Planned commercial environments designed to support the needs of modern businesses.</p>
               <span className="feature-foot">COMMERCIAL WORKSPACES</span>
             </div>
-            <div className="card-back"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600" alt="Workspace" /></div>
+            <div className="card-back"><img src="/images/WWAP.png" alt="Workspace" /></div>
           </article>
           <article className="feature-card">
             <div className="card-front">
@@ -74,7 +74,7 @@ export default function Home() {
               <p>For businesses with flexible needs, choose to subscribe, than lease.</p>
               <span className="feature-foot">BUILT FOR CONNECTION</span>
             </div>
-            <div className="card-back"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600" alt="Workspace" /></div>
+            <div className="card-back"><img src="/images/FE.png" alt="Workspace" /></div>
           </article>
           <article className="feature-card">
             <div className="card-front">
@@ -83,7 +83,7 @@ export default function Home() {
               <p>Planned for businnesses striving in changing business landscape.</p>
               <span className="feature-foot">FUTURE FOCUSED</span>
             </div>
-            <div className="card-back"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=600" alt="Workspace" /></div>
+            <div className="card-back"><img src="/images/IFT.png" alt="Workspace" /></div>
           </article>
         </div>
         <div className="amenity-strip">

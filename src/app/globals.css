@@ -47,7 +47,7 @@ select {
     height: 100svh;
     max-height: 1050px;
     overflow: hidden;
-    background: #171c1a;
+    background: #171c1a url('/images/Reception.png') center/cover no-repeat;
     color: #fff
 }
 
