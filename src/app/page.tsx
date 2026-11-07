@@ -4,6 +4,7 @@ import { EnquiryForm } from "@/components/enquiry-form";
 import { Reveal } from "@/components/reveal";
 import { SiteHeader } from "@/components/site-header";
 import { HeroBackground } from "@/components/hero-background";
+import { ScrollTop } from "@/components/scroll-top";
 
 const projectName = process.env.NEXT_PUBLIC_PROJECT_NAME || "Corner CoWorks";
 const location = process.env.NEXT_PUBLIC_PROJECT_LOCATION || "Bhopal, Madhya Pradesh";
@@ -168,7 +169,7 @@ export default function Home() {
         <a className="brand footer-brand" href="#home" aria-label={`${projectName} home`}>
           <Image className="brand-logo" src="/images/logo-color.png" alt="Corner Coworks" width={180} height={58} /></a>
         <span>© {new Date().getFullYear()} {projectName}. All rights reserved.</span>
-        <a href="#home">BACK TO TOP ↑</a>
+        <ScrollTop />
       </footer>
     </main>
   );
