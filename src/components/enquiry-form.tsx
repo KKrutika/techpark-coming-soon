@@ -85,9 +85,8 @@ export function EnquiryForm() {
         <select name="interest" required defaultValue="" aria-invalid={Boolean(errors.interest)} aria-describedby={errors.interest ? "interest-error" : undefined} onChange={() => clearError("interest")}>
           <option value="" disabled>Select your interest</option>
           <option value="Office space">Office space</option>
-          <option value="Investment opportunity">Investment opportunity</option>
-          <option value="Business partnership">Business partnership</option>
-          <option value="Other">Other</option>
+          <option value="Flexible Plans">Flexible Plans</option>
+          <option value="NewsLetter">NewsLetter</option>
         </select>
         <FieldError id="interest-error" message={errors.interest} />
       </label>

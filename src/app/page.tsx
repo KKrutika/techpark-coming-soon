@@ -1,37 +1,58 @@
-import { ArrowRight, Building2, Coffee, MapPin, Monitor, ShieldCheck, Sparkles } from "lucide-react";
-import { Countdown } from "@/components/countdown";
+import { ArrowRight, ArrowDown, Building2, Coffee, MapPin, Monitor, ShieldCheck, Sparkles } from "lucide-react";
 import Image from "next/image";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { Reveal } from "@/components/reveal";
 import { SiteHeader } from "@/components/site-header";
+import { HeroBackground } from "@/components/hero-background";
 
 const projectName = process.env.NEXT_PUBLIC_PROJECT_NAME || "Corner CoWorks";
 const location = process.env.NEXT_PUBLIC_PROJECT_LOCATION || "Bhopal, Madhya Pradesh";
 const tagline = process.env.NEXT_PUBLIC_PROJECT_TAGLINE || "Real estate as a solution, built for professionals. Subscribe, rather than Lease";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: projectName,
+  description: `Flexible, subscription-based coworking and commercial office spaces in ${location}.`,
+  image: `${siteUrl}/images/logo-color.png`,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Bhopal",
+    addressRegion: "Madhya Pradesh",
+    addressCountry: "IN",
+  },
+  geo: { "@type": "GeoCoordinates", latitude: 23.2321438, longitude: 77.433168 },
+  hasMap: "https://www.google.com/maps?q=23.2321438,77.433168",
+  openingHoursSpecification: { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], opens: "09:00", closes: "19:00" },
+};
 
 export default function Home() {
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }} />
       <SiteHeader projectName={projectName} />
       <section className="hero" id="home">
-        <div className="hero-ambient" aria-hidden="true" />
-        <div className="hero-content">
+        <HeroBackground />
+        {/* <div className="hero-ambient" aria-hidden="true" /> */}
+        <div className="hero-content hero-waitlist">
           <Image className="hero-logo" src="/images/logo-color.png" alt="Corner Coworks" width={150} height={49} priority />
-          <div className="eyebrow hero-label"><span className="live-dot" /> THE CORNER COWORKS WAITLIST</div>
+          <div className="eyebrow hero-label"><span className="live-dot" /> A MINI TECHPARK</div>
           <h1>Coming <em>soon!</em></h1>
           <p className="hero-description">{tagline}.</p>
           {/* <Countdown /> */}
-          <div className="hero-waitlist">
-            <div className="hero-waitlist-tag"><Sparkles size={14} /> EARLY ACCESS</div>
-            <h2>Join our waitlist !</h2>
-            <p>and be among the first to explore more about what&apos;s next.</p>
-            <a className="button button-primary hero-enquire-button" href="#enquire">Enquire now <ArrowRight size={16} /></a>
+          <div className="">
+            {/* <div className="hero-waitlist-tag"><Sparkles size={14} /> EARLY ACCESS</div> */}
+            <h2>Enjoy Early Access!</h2>
+            {/* <p>and be among the first to explore more about what&apos;s next.</p> */}
+            <a className="button button-primary hero-enquire-button" href="#enquire"> Join our waitlist <ArrowRight size={16} /></a>
           </div>
         </div>
         <div className="hero-wordmark" aria-hidden="true">WAITLIST</div>
-        <div className="hero-bottomline"><span><MapPin size={15} /> {location}</span><span>DESIGNED FOR WHAT&apos;S NEXT</span></div>
+        <a className="scroll-down-btn" href="#vision" aria-label="Scroll down"><ArrowDown size={20} /></a>
       </section>
 
+      <div className="section-container">
       <Reveal>
         <section className="intro-section section-pad" id="vision">
         <div className="section-kicker">01 / THE VISION</div>
@@ -65,7 +86,7 @@ export default function Home() {
               <p>Planned commercial environments designed to support the needs of modern businesses.</p>
               <span className="feature-foot">COMMERCIAL WORKSPACES</span>
             </div>
-            <div className="card-back"><img src="/images/WWAP.png" alt="Workspace" /></div>
+            <div className="card-back"><Image src="/images/WWAP.png" alt="Modern commercial workspace with purposeful layout" width={400} height={300} /></div>
           </article>
           <article className="feature-card">
             <div className="card-front">
@@ -74,7 +95,7 @@ export default function Home() {
               <p>For businesses with flexible needs, choose to subscribe, than lease.</p>
               <span className="feature-foot">BUILT FOR CONNECTION</span>
             </div>
-            <div className="card-back"><img src="/images/FE.png" alt="Workspace" /></div>
+            <div className="card-back"><Image src="/images/FE.png" alt="Flexible coworking space with collaborative seating" width={400} height={300} /></div>
           </article>
           <article className="feature-card">
             <div className="card-front">
@@ -83,7 +104,7 @@ export default function Home() {
               <p>Planned for businnesses striving in changing business landscape.</p>
               <span className="feature-foot">FUTURE FOCUSED</span>
             </div>
-            <div className="card-back"><img src="/images/IFT.png" alt="Workspace" /></div>
+            <div className="card-back"><Image src="/images/IFT.png" alt="Future-ready office infrastructure and meeting rooms" width={400} height={300} /></div>
           </article>
         </div>
         <div className="amenity-strip">
@@ -141,6 +162,7 @@ export default function Home() {
         </div>
         </section>
       </Reveal>
+      </div>
 
       <footer className="site-footer">
         <a className="brand footer-brand" href="#home" aria-label={`${projectName} home`}>

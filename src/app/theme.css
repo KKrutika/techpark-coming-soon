@@ -253,3 +253,62 @@ html{scroll-snap-type:y proximity}
 .reveal--visible{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 @media(prefers-reduced-motion:reduce){.feature-card,.feature-card>svg,.feature-card .feature-number,.feature-card .feature-foot{transition:none}.feature-card:hover{transform:none}}
+
+/* Full-page loader: brand overlay with spinner, fades out on window load. */
+.page-loader{position:fixed;z-index:100;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;background:#fff;transition:opacity .55s ease,visibility .55s}
+.page-loader img{width:120px;height:auto;animation:loader-breathe 1.8s ease-in-out infinite}
+.page-loader-spinner{width:34px;height:34px;border:3px solid rgba(11,42,122,.15);border-top-color:#ff6b00;border-radius:50%;animation:loader-spin .8s linear infinite}
+.page-loader--done{opacity:0;visibility:hidden;pointer-events:none}
+@keyframes loader-spin{to{transform:rotate(360deg)}}
+@keyframes loader-breathe{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(.97)}}
+@media(prefers-reduced-motion:reduce){.page-loader img,.page-loader-spinner{animation:none}}
+
+/* Loader: green spinner ring with the animated icon centered inside, cross-fading. */
+.loader-ring-wrap{position:relative;width:64px;height:64px;display:grid;place-items:center}
+.loader-ring{position:absolute;inset:0;border:3px solid rgba(122,157,42,.2);border-top-color:#7a9d2a;border-radius:50%;animation:loader-spin .9s linear infinite}
+.loader-icon-center{position:relative;z-index:1;color:#7a9d2a}
+.loader-fade--in{animation:icon-fade-in .55s ease both}
+.loader-fade--out{animation:icon-fade-out .35s ease both}
+@keyframes icon-fade-in{from{opacity:0;transform:scale(.82)}to{opacity:1;transform:scale(1)}}
+@keyframes icon-fade-out{from{opacity:1;transform:scale(1)}to{opacity:0;transform:scale(.82)}}
+@media(prefers-reduced-motion:reduce){.loader-fade--in,.loader-fade--out{animation:none}}
+
+/* Animated SVG loader icons (building windows, coffee steam, monitor flicker, shield check). */
+.anim-icon{display:block;overflow:visible}
+
+/* Building: windows light up one row at a time, door "opens". */
+.building-window{animation:window-flicker 1.8s ease-in-out infinite}
+.building-window--two{animation-delay:.6s}
+.building-window--three{animation-delay:1.2s}
+@keyframes window-flicker{0%,100%{opacity:.25}40%,60%{opacity:1}}
+
+/* Monitor: lines on the screen type in and out like work being done; cursor blinks. */
+.monitor-screen path,.monitor-screen rect{stroke-dasharray:24;stroke-dashoffset:24;animation:screen-type 1.6s ease-in-out infinite}
+.monitor-screen path:nth-child(2){animation-delay:.3s}
+.monitor-screen rect{animation-delay:.5s}
+.monitor-cursor{animation:cursor-blink .7s steps(1) infinite;transform-origin:center}
+@keyframes screen-type{0%{stroke-dashoffset:24;opacity:0}35%{stroke-dashoffset:0;opacity:1}80%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:-24;opacity:0}}
+@keyframes cursor-blink{0%,49%{opacity:1}50%,100%{opacity:.15}}
+
+/* Coffee: steam wisps rise and fade; the drink level gently sloshes. */
+.coffee-steam path{stroke-dasharray:10;stroke-dashoffset:10;animation:steam-rise 1.5s ease-in-out infinite}
+.coffee-steam path:nth-child(2){animation-delay:.35s}
+.coffee-steam path:nth-child(3){animation-delay:.7s}
+@keyframes steam-rise{0%{stroke-dashoffset:10;opacity:0}45%{opacity:.9}100%{stroke-dashoffset:-10;opacity:0}}
+.coffee-slosh{animation:slosh 1.5s ease-in-out infinite}
+@keyframes slosh{0%,100%{transform:translateY(0)}50%{transform:translateY(1.6px)}}
+
+/* Shield: check draws itself in, shield gives a reassuring bounce. */
+.shield-check{stroke-dasharray:26;stroke-dashoffset:26;animation:check-draw 1.6s ease-in-out infinite}
+.shield-body{transform-origin:24px 24px;animation:shield-bounce 1.6s ease-in-out infinite}
+@keyframes check-draw{0%{stroke-dashoffset:26;opacity:0}45%{stroke-dashoffset:0;opacity:1}85%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:.4}}
+@keyframes shield-bounce{0%,100%{transform:scale(1)}40%{transform:scale(1.05)}}
+
+@media(prefers-reduced-motion:reduce){
+  .building-window,.building-window--two,.building-window--three,
+  .monitor-screen path,.monitor-screen rect,.monitor-cursor,
+  .coffee-steam path,.coffee-slosh,.shield-check,.shield-body{animation:none}
+  .monitor-screen path,.monitor-screen rect{stroke-dashoffset:0;opacity:1}
+  .coffee-steam path{stroke-dashoffset:0;opacity:.8}
+  .shield-check{stroke-dashoffset:0}
+}

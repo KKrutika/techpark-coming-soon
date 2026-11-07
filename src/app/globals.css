@@ -11,7 +11,7 @@
 main {
     position: relative;
     z-index: 1;
-    background: var(--paper)
+    background: transparent
 }
 
 html {
@@ -47,7 +47,7 @@ select {
     height: 100svh;
     max-height: 1050px;
     overflow: hidden;
-    background: #171c1a url('/images/Reception.png') center/cover no-repeat;
+    background: #171c1a url('/images/FE.png') center/cover no-repeat;
     color: #fff
 }
 
@@ -2146,3 +2146,12 @@ h2 {
         width: 100%
     }
 }
+.hero-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden }
+.hero-bg-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.2s ease; }
+.hero-bg-slide--active { opacity: 1; }
+.hero-bg-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8,13,11,.75), rgba(8,13,11,.3)); }
+
+.scroll-down-btn { position: absolute; right: 7.2%; bottom: 45px; z-index: 2; width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.4); color: #fff; background: rgba(255,255,255,.08); border-radius: 50%; transition: .2s; }
+.scroll-down-btn:hover { background: #fff; color: var(--ink); }
+
+.hero--hidden { visibility: hidden; }
