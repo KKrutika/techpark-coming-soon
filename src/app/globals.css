@@ -2155,3 +2155,7 @@ h2 {
 .scroll-down-btn:hover { background: #fff; color: var(--ink); }
 
 .hero--hidden { visibility: hidden; }
+
+.hero-logo { width: 150px; margin-bottom: 20px }
+
+.hero-waitlist { margin-top: 8px; padding: 30px 16px 40px; border-radius: 14px; }

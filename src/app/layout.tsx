@@ -36,6 +36,7 @@ export const metadata: Metadata = {
   creator: projectName,
   publisher: projectName,
   alternates: { canonical: "/" },
+  icons: { icon: "/building.svg" },
   openGraph: {
     type: "website",
     locale: "en_IN",

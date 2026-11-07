@@ -18,7 +18,7 @@ export function PageLoader({ children }: { children: React.ReactNode }) {
 
   // TEST MODE: hold the loader open for a fixed time so you can watch the
   // icons cycle. Set DEBUG_LOADER_SECONDS to 0 (or remove) for production.
-  const DEBUG_LOADER_SECONDS = 8;
+  const DEBUG_LOADER_SECONDS = 0;
 
   useEffect(() => {
     if (DEBUG_LOADER_SECONDS > 0) {
